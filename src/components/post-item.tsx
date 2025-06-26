@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Card,
@@ -31,7 +31,10 @@ export function PostItem({ post }: { post: PostTranslation }) {
       <CardContent>
         <CardTitle className="mb-2 text-lg">
           <Link
-            href={`/${post.locale}/${post.slug}`}
+            href={{
+              pathname: "/post/[slug]",
+              params: { slug: post.slug },
+            }}
             className="hover:underline"
           >
             {post.title}

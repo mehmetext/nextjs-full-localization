@@ -1,6 +1,7 @@
 import { postTranslations } from "@/lib/mock/posts";
 import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { PostPageClient } from "./client";
 
 export default async function PostPage({
   params,
@@ -17,10 +18,5 @@ export default async function PostPage({
     notFound();
   }
 
-  return (
-    <main className="container py-10 flex flex-col gap-4">
-      <h1 className="text-4xl font-bold">{post.title}</h1>
-      <p className="text-sm text-gray-500">{post.content}</p>
-    </main>
-  );
+  return <PostPageClient post={post} />;
 }

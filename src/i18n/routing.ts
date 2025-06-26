@@ -9,13 +9,12 @@ export const routing = defineRouting({
   localePrefix: "as-needed",
 
   pathnames: {
-    "/": {
-      en: "/",
-      tr: "/",
-    },
+    "/": "/",
     "/about": {
-      en: "/about",
       tr: "/hakkinda",
+    },
+    "/post/[slug]": {
+      tr: "/gonderi/[slug]",
     },
   },
 });
