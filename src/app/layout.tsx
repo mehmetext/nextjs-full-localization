@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Next.js Tam Yerelleştirilmiş Blog",
-  description:
-    "Bu proje, next-intl kullanılarak tam yerelleştirilmiş bir blog projesidir.",
+export const generateMetadata = async () => {
+  const t = await getTranslations("Metadata");
+
+  return {
+    title: t("Root.Title"),
+    description: t("Root.Description"),
+  };
 };
 
 export default async function RootLayout({

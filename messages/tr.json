@@ -1,4 +1,13 @@
 {
+  "Metadata": {
+    "Root": {
+      "Title": "Next.js Tam Yerelleştirilmiş Blog",
+      "Description": "Bu proje, Next.js ile yazılmış bir blog uygulamasıdır. Projenin amacı, tamamen yerelleştirilmiş bir blog uygulaması oluşturmaktır. Kullanılan teknolojiler arasında Next.js, Shadcn UI, Tailwind CSS, Prisma bulunmaktadır."
+    },
+    "Post": {
+      "Title": "{title} | Next.js Tam Yerelleştirilmiş Blog"
+    }
+  },
   "Header": {
     "Menu": {
       "Home": "Anasayfa",
