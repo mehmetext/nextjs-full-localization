@@ -1,6 +1,15 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "Header": {
+    "Menu": {
+      "Home": "Home",
+      "About": "About"
+    }
+  },
+  "Footer": {
+    "Copyright": "Copyright © {year} Next.js Blog. All rights reserved."
+  },
+  "AboutPage": {
+    "title": "About",
+    "description": "This project is a blog application built with Next.js. The purpose of the project is to create a fully localized blog application. The technologies used in the project include Next.js, Shadcn UI, Tailwind CSS, Prisma."
   }
 }

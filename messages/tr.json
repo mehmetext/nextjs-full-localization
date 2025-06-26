@@ -1,6 +1,15 @@
 {
-  "HomePage": {
-    "title": "Merhaba Dünya!",
-    "about": "Hakkımda sayfasına git"
+  "Header": {
+    "Menu": {
+      "Home": "Anasayfa",
+      "About": "Hakkında"
+    }
+  },
+  "Footer": {
+    "Copyright": "Copyright © {year} Next.js Blog. Tüm hakları saklıdır."
+  },
+  "AboutPage": {
+    "title": "Hakkında",
+    "description": "Bu proje, Next.js ile yazılmış bir blog uygulamasıdır. Projenin amacı, tamamen yerelleştirilmiş bir blog uygulaması oluşturmaktır. Kullanılan teknolojiler arasında Next.js, Shadcn UI, Tailwind CSS, Prisma bulunmaktadır."
   }
 }

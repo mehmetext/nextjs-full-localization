@@ -12,10 +12,24 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Link } from "@/i18n/navigation";
 import { Menu, Search, User } from "lucide-react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+
+const menuItems = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+] as const;
 
 export function Header() {
+  const t = useTranslations("Header.Menu");
+
   return (
     <header className="w-full border-b h-16 bg-background/95 sticky top-0 z-50">
       <div className="container flex items-center justify-between gap-4 h-full">
@@ -26,16 +40,13 @@ export function Header() {
         <nav className="hidden md:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href="/" className="px-4 py-2 hover:underline">
-                  Anasayfa
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/about" className="px-4 py-2 hover:underline">
-                  Hakkında
-                </Link>
-              </NavigationMenuItem>
+              {menuItems.map((item) => (
+                <NavigationMenuItem key={item.label}>
+                  <Link href={item.href} className="px-4 py-2 hover:underline">
+                    {t(item.label)}
+                  </Link>
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
