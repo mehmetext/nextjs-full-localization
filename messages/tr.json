@@ -2,7 +2,8 @@
   "Header": {
     "Menu": {
       "Home": "Anasayfa",
-      "About": "Hakkında"
+      "About": "Hakkında",
+      "OpenMenu": "Menüyü Aç"
     }
   },
   "Footer": {
@@ -11,5 +12,14 @@
   "AboutPage": {
     "title": "Hakkında",
     "description": "Bu proje, Next.js ile yazılmış bir blog uygulamasıdır. Projenin amacı, tamamen yerelleştirilmiş bir blog uygulaması oluşturmaktır. Kullanılan teknolojiler arasında Next.js, Shadcn UI, Tailwind CSS, Prisma bulunmaktadır."
+  },
+  "Home": {
+    "Title": "Son Yazılar"
+  },
+  "ModeToggle": {
+    "Toggle": "Tema Değiştir",
+    "Light": "Açık",
+    "Dark": "Koyu",
+    "System": "Sistem"
   }
 }

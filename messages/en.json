@@ -2,7 +2,8 @@
   "Header": {
     "Menu": {
       "Home": "Home",
-      "About": "About"
+      "About": "About",
+      "OpenMenu": "Open Menu"
     }
   },
   "Footer": {
@@ -11,5 +12,14 @@
   "AboutPage": {
     "title": "About",
     "description": "This project is a blog application built with Next.js. The purpose of the project is to create a fully localized blog application. The technologies used in the project include Next.js, Shadcn UI, Tailwind CSS, Prisma."
+  },
+  "Home": {
+    "Title": "Latest Posts"
+  },
+  "ModeToggle": {
+    "Toggle": "Toggle Theme",
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System"
   }
 }

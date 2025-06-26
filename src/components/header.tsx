@@ -76,7 +76,7 @@ export function Header() {
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu />
-                  <span className="sr-only">Menüyü Aç</span>
+                  <span className="sr-only">{t("OpenMenu")}</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
@@ -92,14 +92,14 @@ export function Header() {
                     variant="outline"
                     className="w-full justify-start"
                   >
-                    <Link href="/">Anasayfa</Link>
+                    <Link href="/">{t("Home")}</Link>
                   </Button>
                   <Button
                     asChild
                     variant="outline"
                     className="w-full justify-start"
                   >
-                    <Link href="/about">Hakkında</Link>
+                    <Link href="/about">{t("About")}</Link>
                   </Button>
                 </nav>
                 <div className="flex items-center gap-3 px-4 pb-4 mt-auto">
