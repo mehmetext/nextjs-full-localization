@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { postTranslations } from "@/lib/mock/posts";
 import { cn } from "@/lib/utils";
 import { CheckIcon, GlobeIcon } from "lucide-react";
 import { Locale, useLocale } from "next-intl";
@@ -26,6 +27,26 @@ export default function ChangeLocale() {
 
   const handleChangeLocale = (locale: string) => {
     const nextLocale = locale as Locale;
+
+    if (pathname === "/post/[slug]") {
+      const postId = postTranslations.find(
+        (post) => post.slug === params.slug
+      )?.postId;
+
+      const localePost = postTranslations.find(
+        (post) => post.postId === postId && post.locale === nextLocale
+      );
+
+      router.replace(
+        {
+          pathname,
+          params: { ...params, slug: localePost?.slug as string },
+        },
+        { locale: nextLocale }
+      );
+      return;
+    }
+
     router.replace(
       // @ts-expect-error -- TypeScript will validate that only known `params`
       // are used in combination with a given `pathname`. Since the two will
