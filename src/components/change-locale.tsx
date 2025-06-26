@@ -38,6 +38,11 @@ export default function ChangeLocale() {
       nextLocale
     );
 
+    if (!postTranslation) {
+      router.replace({ pathname: "/" }, { locale: nextLocale });
+      return;
+    }
+
     router.replace(
       {
         pathname,
