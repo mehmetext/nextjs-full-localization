@@ -32,12 +32,7 @@ export function Header() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/yazilar" className="px-4 py-2 hover:underline">
-                  Yazılar
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/hakkinda" className="px-4 py-2 hover:underline">
+                <Link href="/about" className="px-4 py-2 hover:underline">
                   Hakkında
                 </Link>
               </NavigationMenuItem>
@@ -89,14 +84,7 @@ export function Header() {
                     variant="outline"
                     className="w-full justify-start"
                   >
-                    <Link href="/yazilar">Yazılar</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full justify-start"
-                  >
-                    <Link href="/hakkinda">Hakkında</Link>
+                    <Link href="/about">Hakkında</Link>
                   </Button>
                 </nav>
                 <div className="flex items-center gap-3 px-4 pb-4 mt-auto">
