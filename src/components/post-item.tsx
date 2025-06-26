@@ -47,8 +47,11 @@ export function PostItem({
           <Link
             href={{
               pathname: "/post/[slug]",
-              params: { slug: postTranslation.slug },
+              params: {
+                slug: postTranslation.slug,
+              },
             }}
+            locale={postTranslation.locale.toLowerCase()}
             className="hover:underline"
           >
             {postTranslation.title}

@@ -1,4 +1,5 @@
 import { PostItem } from "@/components/post-item";
+import { routing } from "@/i18n/routing";
 import prisma from "@/lib/prisma";
 import { Locale } from "@prisma/client";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -11,14 +12,12 @@ export default async function Home() {
     include: {
       postTranslations: {
         where: {
-          locale: locale.toUpperCase() as Locale,
-        },
-      },
-    },
-    where: {
-      postTranslations: {
-        some: {
-          locale: locale.toUpperCase() as Locale,
+          locale: {
+            in: [
+              locale.toUpperCase() as Locale,
+              routing.defaultLocale.toUpperCase() as Locale,
+            ],
+          },
         },
       },
     },
@@ -32,7 +31,12 @@ export default async function Home() {
           <PostItem
             key={post.id}
             post={post}
-            postTranslation={post.postTranslations[0]}
+            postTranslation={
+              post.postTranslations.find(
+                (translation) =>
+                  translation.locale === (locale.toUpperCase() as Locale)
+              ) || post.postTranslations[0]
+            }
           />
         ))}
       </div>
