@@ -27,6 +27,7 @@ model PostTranslation {
   id        String   @id @default(uuid())
   postId    String   @map("post_id")
   post      Post     @relation(fields: [postId], references: [id])
+  slug      String   @unique @map("slug")
   locale    Locale
   title     String
   content   String

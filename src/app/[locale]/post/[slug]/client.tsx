@@ -1,10 +1,19 @@
 "use client";
 
-export function PostPageClient({ post }: { post: PostTranslation }) {
+import { Post, PostTranslation } from "@prisma/client";
+
+export function PostPageClient({
+  post,
+  postTranslation,
+}: {
+  post: Post;
+  postTranslation: PostTranslation;
+}) {
   return (
     <main className="container py-10 flex flex-col gap-4">
-      <h1 className="text-4xl font-bold">{post.title}</h1>
-      <p className="text-sm text-gray-500">{post.content}</p>
+      <p className="text-sm text-gray-500">{post.createdAt.toISOString()}</p>
+      <h1 className="text-4xl font-bold">{postTranslation.title}</h1>
+      <p className="text-sm text-gray-500">{postTranslation.content}</p>
     </main>
   );
 }

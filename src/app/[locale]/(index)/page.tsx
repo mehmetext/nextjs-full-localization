@@ -1,10 +1,28 @@
 import { PostItem } from "@/components/post-item";
-import { posts, postTranslations } from "@/lib/mock/posts";
-import { useLocale, useTranslations } from "next-intl";
+import prisma from "@/lib/prisma";
+import { Locale } from "@prisma/client";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export default function Home() {
-  const locale = useLocale();
-  const t = useTranslations("Home");
+export default async function Home() {
+  const locale = await getLocale();
+  const t = await getTranslations("Home");
+
+  const posts = await prisma.post.findMany({
+    include: {
+      postTranslations: {
+        where: {
+          locale: locale.toUpperCase() as Locale,
+        },
+      },
+    },
+    where: {
+      postTranslations: {
+        some: {
+          locale: locale.toUpperCase() as Locale,
+        },
+      },
+    },
+  });
 
   return (
     <main className="container py-10 flex flex-col gap-4">
@@ -13,13 +31,8 @@ export default function Home() {
         {posts.map((post) => (
           <PostItem
             key={post.id}
-            post={
-              postTranslations.find(
-                (translation) =>
-                  translation.postId === post.id &&
-                  translation.locale === locale
-              ) as PostTranslation
-            }
+            post={post}
+            postTranslation={post.postTranslations[0]}
           />
         ))}
       </div>

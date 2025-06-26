@@ -1,9 +1,9 @@
 "use client";
 
+import getPostFromAnotherLocale from "@/actions/get-post-from-another-locale";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { postTranslations } from "@/lib/mock/posts";
 import { cn } from "@/lib/utils";
 import { CheckIcon, GlobeIcon } from "lucide-react";
 import { Locale, useLocale } from "next-intl";
@@ -29,19 +29,20 @@ export default function ChangeLocale() {
   const router = useRouter();
   const currentLocale = useLocale();
 
-  const handlePostSlugChange = (locale: string) => {
+  const handlePostSlugChange = async (locale: string) => {
     const nextLocale = locale as Locale;
 
-    const postId = postTranslations.find(
-      (post) => post.slug === params.slug
-    )?.postId;
-
-    const localePost = postTranslations.find(
-      (post) => post.postId === postId && post.locale === nextLocale
+    const postTranslation = await getPostFromAnotherLocale(
+      params.slug as string,
+      currentLocale,
+      nextLocale
     );
 
     router.replace(
-      { pathname, params: { ...params, slug: localePost?.slug as string } },
+      {
+        pathname,
+        params: { ...params, slug: postTranslation?.slug as string },
+      },
       { locale: nextLocale }
     );
   };

@@ -1,4 +1,5 @@
 import { Link } from "@/i18n/navigation";
+import { Post, PostTranslation } from "@prisma/client";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Card,
@@ -8,7 +9,13 @@ import {
   CardTitle,
 } from "./ui/card";
 
-export function PostItem({ post }: { post: PostTranslation }) {
+export function PostItem({
+  post,
+  postTranslation,
+}: {
+  post: Post;
+  postTranslation: PostTranslation;
+}) {
   return (
     <Card className="w-full">
       <CardHeader className="flex flex-row items-center gap-4 border-b">
@@ -23,7 +30,7 @@ export function PostItem({ post }: { post: PostTranslation }) {
           <div>
             <div className="font-medium text-sm">Mehmet Konukçu</div>
             <div className="text-xs text-muted-foreground">
-              {new Date().toISOString()}
+              {post.createdAt.toISOString()}
             </div>
           </div>
         </div>
@@ -33,14 +40,16 @@ export function PostItem({ post }: { post: PostTranslation }) {
           <Link
             href={{
               pathname: "/post/[slug]",
-              params: { slug: post.slug },
+              params: { slug: postTranslation.slug },
             }}
             className="hover:underline"
           >
-            {post.title}
+            {postTranslation.title}
           </Link>
         </CardTitle>
-        <CardDescription className="mb-3">{post.content}</CardDescription>
+        <CardDescription className="mb-3">
+          {postTranslation.content}
+        </CardDescription>
       </CardContent>
     </Card>
   );

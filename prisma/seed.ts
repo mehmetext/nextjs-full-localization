@@ -18,12 +18,14 @@ async function main() {
           title: "Getting Started with Next.js",
           content:
             "Next.js is a powerful React framework that makes building full-stack web applications simple and efficient. In this post, we'll explore the basics of Next.js and how to get started with your first project.",
+          slug: "getting-started-with-nextjs",
         },
         {
           locale: Locale.TR,
           title: "Next.js ile Başlangıç",
           content:
             "Next.js, tam yığın web uygulamaları oluşturmayı basit ve verimli hale getiren güçlü bir React framework'üdür. Bu yazıda Next.js'in temellerini ve ilk projenizle nasıl başlayacağınızı keşfedeceğiz.",
+          slug: "nextjs-ile-baslangic",
         },
       ],
     },
@@ -34,12 +36,14 @@ async function main() {
           title: "Internationalization in Next.js",
           content:
             "Learn how to implement internationalization (i18n) in your Next.js application. We'll cover routing, message formatting, and best practices for creating multilingual applications.",
+          slug: "internationalization-in-nextjs",
         },
         {
           locale: Locale.TR,
           title: "Next.js'te Uluslararasılaştırma",
           content:
             "Next.js uygulamanızda uluslararasılaştırma (i18n) nasıl uygulanacağını öğrenin. Yönlendirme, mesaj formatlaması ve çok dilli uygulamalar oluşturma için en iyi uygulamaları ele alacağız.",
+          slug: "nextjs-te-uluslararasilastirma",
         },
       ],
     },
@@ -50,12 +54,14 @@ async function main() {
           title: "Prisma with PostgreSQL",
           content:
             "Discover how to use Prisma ORM with PostgreSQL for efficient database management. We'll cover schema design, migrations, and advanced querying techniques.",
+          slug: "prisma-with-postgresql",
         },
         {
           locale: Locale.TR,
           title: "PostgreSQL ile Prisma",
           content:
             "Verimli veritabanı yönetimi için Prisma ORM'yi PostgreSQL ile nasıl kullanacağınızı keşfedin. Şema tasarımı, migrasyonlar ve gelişmiş sorgulama tekniklerini ele alacağız.",
+          slug: "postgresql-ile-prisma",
         },
       ],
     },
@@ -66,12 +72,14 @@ async function main() {
           title: "Building Modern UIs with Tailwind CSS",
           content:
             "Explore how to create beautiful and responsive user interfaces using Tailwind CSS. Learn about utility-first CSS, component design, and responsive design principles.",
+          slug: "building-modern-uis-with-tailwind-css",
         },
         {
           locale: Locale.TR,
           title: "Tailwind CSS ile Modern Arayüzler Oluşturma",
           content:
             "Tailwind CSS kullanarak güzel ve duyarlı kullanıcı arayüzleri oluşturmayı keşfedin. Utility-first CSS, bileşen tasarımı ve duyarlı tasarım prensiplerini öğrenin.",
+          slug: "tailwind-css-ile-modern-arayuzler-olusturma",
         },
       ],
     },
@@ -82,12 +90,14 @@ async function main() {
           title: "TypeScript Best Practices",
           content:
             "Master TypeScript best practices for building robust and maintainable applications. We'll cover type safety, interfaces, generics, and advanced TypeScript features.",
+          slug: "typescript-best-practices",
         },
         {
           locale: Locale.TR,
           title: "TypeScript En İyi Uygulamaları",
           content:
             "Sağlam ve sürdürülebilir uygulamalar oluşturmak için TypeScript en iyi uygulamalarında uzmanlaşın. Tip güvenliği, arayüzler, jenerikler ve gelişmiş TypeScript özelliklerini ele alacağız.",
+          slug: "typescript-en-iyi-uygulamalari",
         },
       ],
     },
