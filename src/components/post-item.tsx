@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "./ui/card";
 
-export function PostItem() {
+export function PostItem({ post }: { post: PostTranslation }) {
   return (
     <Card className="w-full">
       <CardHeader className="flex flex-row items-center gap-4 border-b">
@@ -30,14 +30,14 @@ export function PostItem() {
       </CardHeader>
       <CardContent>
         <CardTitle className="mb-2 text-lg">
-          <Link href="/falan-filan" className="hover:underline">
-            Next.js ile Tam Yerelleştirilmiş Blog
+          <Link
+            href={`/${post.locale}/${post.slug}`}
+            className="hover:underline"
+          >
+            {post.title}
           </Link>
         </CardTitle>
-        <CardDescription className="mb-3">
-          Bu yazıda, Next.js ve next-intl ile tam yerelleştirilmiş bir blog
-          uygulamasının nasıl geliştirileceğini anlatıyorum.
-        </CardDescription>
+        <CardDescription className="mb-3">{post.content}</CardDescription>
       </CardContent>
     </Card>
   );
