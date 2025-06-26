@@ -15,6 +15,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { Menu, Search, User } from "lucide-react";
 import { useTranslations } from "next-intl";
+import ChangeLocale from "./change-locale";
 
 const menuItems = [
   {
@@ -58,6 +59,9 @@ export function Header() {
           </Button>
           <div className="hidden md:block">
             <ModeToggle />
+          </div>
+          <div className="hidden md:block">
+            <ChangeLocale />
           </div>
           <div className="hidden md:block">
             <Avatar>
