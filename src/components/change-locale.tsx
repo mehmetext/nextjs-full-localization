@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { postTranslations } from "@/lib/mock/posts";
 import { cn } from "@/lib/utils";
 import { CheckIcon, GlobeIcon } from "lucide-react";
@@ -14,9 +15,12 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-const locales = [
-  { code: "tr", name: "🇹🇷 | TR", path: "/tr" },
-  { code: "en", name: "🇺🇸 | EN", path: "/en" },
+const locales: {
+  code: (typeof routing.locales)[number];
+  name: string;
+}[] = [
+  { code: "tr", name: "🇹🇷 | TR" },
+  { code: "en", name: "🇺🇸 | EN" },
 ];
 
 export default function ChangeLocale() {
@@ -25,27 +29,30 @@ export default function ChangeLocale() {
   const router = useRouter();
   const currentLocale = useLocale();
 
-  const handleChangeLocale = (locale: string) => {
+  const handlePostSlugChange = (locale: string) => {
     const nextLocale = locale as Locale;
 
+    const postId = postTranslations.find(
+      (post) => post.slug === params.slug
+    )?.postId;
+
+    const localePost = postTranslations.find(
+      (post) => post.postId === postId && post.locale === nextLocale
+    );
+
+    router.replace(
+      { pathname, params: { ...params, slug: localePost?.slug as string } },
+      { locale: nextLocale }
+    );
+  };
+
+  const handleChangeLocale = (locale: string) => {
     if (pathname === "/post/[slug]") {
-      const postId = postTranslations.find(
-        (post) => post.slug === params.slug
-      )?.postId;
-
-      const localePost = postTranslations.find(
-        (post) => post.postId === postId && post.locale === nextLocale
-      );
-
-      router.replace(
-        {
-          pathname,
-          params: { ...params, slug: localePost?.slug as string },
-        },
-        { locale: nextLocale }
-      );
+      handlePostSlugChange(locale);
       return;
     }
+
+    const nextLocale = locale as Locale;
 
     router.replace(
       // @ts-expect-error -- TypeScript will validate that only known `params`
