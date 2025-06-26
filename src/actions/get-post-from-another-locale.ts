@@ -8,7 +8,8 @@ export default async function getPostFromAnotherLocale(
   currentLocale: string,
   nextLocale: string
 ) {
-  const post = await prisma.postTranslation.findFirst({
+  const postTranslation = await prisma.postTranslation.findFirst({
+    select: { slug: true },
     where: {
       post: {
         postTranslations: {
@@ -22,5 +23,5 @@ export default async function getPostFromAnotherLocale(
     },
   });
 
-  return post;
+  return postTranslation;
 }
