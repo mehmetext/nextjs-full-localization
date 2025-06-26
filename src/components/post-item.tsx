@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { Post, PostTranslation } from "@prisma/client";
+import ClientSideDate from "./client-side-date";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Card,
@@ -30,7 +31,13 @@ export function PostItem({
           <div>
             <div className="font-medium text-sm">Mehmet Konukçu</div>
             <div className="text-xs text-muted-foreground">
-              {post.createdAt.toISOString()}
+              <ClientSideDate
+                date={post.createdAt}
+                options={{
+                  dateStyle: "long",
+                  timeStyle: "short",
+                }}
+              />
             </div>
           </div>
         </div>
