@@ -3,7 +3,7 @@
 import getPostFromAnotherLocale from "@/actions/get-post-from-another-locale";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { locales } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { CheckIcon, GlobeIcon } from "lucide-react";
 import { Locale, useLocale } from "next-intl";
@@ -14,14 +14,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-
-const locales: {
-  code: (typeof routing.locales)[number];
-  name: string;
-}[] = [
-  { code: "tr", name: "🇹🇷 | TR" },
-  { code: "en", name: "🇺🇸 | EN" },
-];
 
 export default function ChangeLocale() {
   const pathname = usePathname();

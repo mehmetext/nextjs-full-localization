@@ -9,6 +9,18 @@ export default async function Home() {
   const t = await getTranslations("Home");
 
   const posts = await prisma.post.findMany({
+    where: {
+      postTranslations: {
+        some: {
+          locale: {
+            in: [
+              locale.toUpperCase() as Locale,
+              routing.defaultLocale.toUpperCase() as Locale,
+            ],
+          },
+        },
+      },
+    },
     include: {
       postTranslations: {
         where: {
@@ -22,6 +34,11 @@ export default async function Home() {
       },
     },
   });
+
+  console.log([
+    locale.toUpperCase() as Locale,
+    routing.defaultLocale.toUpperCase() as Locale,
+  ]);
 
   return (
     <main className="container py-10 flex flex-col gap-4">
